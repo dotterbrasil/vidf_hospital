@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="barcodescanner.js"></script>
+        <script type="text/javascript" src="childbrowser.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+
+	<script type="text/javascript" src="js/funcoes_fabricante.js"></script>
+
+
+</head>
+
+<body>
+
+<style type="text/css"> 
+body { 
+background-image: url("imagens/fundop.jpg"); 
+background-repeat: no-repeat; 
+background-position: 5px 10px;  
+} 
+</style> 
+
+<form name="formulario" action="http://v-id.net/demo/farma/funcoes/registro.php" method="POST">
+
+<font size="1">
+<div style="position:absolute;left:20px; top:280px ">v-id:<br>
+<INPUT TYPE="text" NAME="fid" SIZE="50">
+</div>
+
+<div style="position:absolute;left:20px; top:50px ">Produto:<br>
+<IFRAME NAME="CampoFoto" SRC="imagens/foto.jpg" ALIGN="left" HEIGHT="200" WIDTH="200" SCROLLING="NO" FRAMEBORDER="0"> </IFRAME>
+</div>
+
+<div style="position:absolute;left:220px; top:40px "><font size="1">Reg. ANVISA: <br>
+<INPUT TYPE="text" NAME="fanvisa" MAXLENGTH="13" SIZE="20">
+</div>
+
+<div style="position:absolute;left:220px; top:100px "><font size="1">Serial: <br>
+<INPUT TYPE="text" NAME="fserial" MAXLENGTH="20" SIZE="20">
+</div>
+
+<div style="position:absolute;left:220px; top:160px "><font size="1">Validade: <br>
+<INPUT TYPE="text" NAME="fvalidade" MAXLENGTH="5" SIZE="20">
+</div>
+
+<div style="position:absolute;left:220px; top:220px "><font size="1">Lote: <br>
+<INPUT TYPE="text" NAME="flote" MAXLENGTH="20" SIZE="20">
+</div>
+
+<div style="position:absolute;left:450px; top:40px "><font size="3">Natureza da Operacao: <br>
+<INPUT TYPE="radio" NAME="fnatureza" VALUE="venda"> Venda<BR>
+<INPUT TYPE="radio" NAME="fnatureza" VALUE="amostra"> Amostra<BR>
+<INPUT TYPE="radio" NAME="fnatureza" VALUE="armazenagem"> Armazenagem<BR>
+CNPJ Destino:<BR><input type="text" name="fdestino" onChange="validadestino()"><BR>
+CNPJ Transportadora:<BR><input type="text" name="ftransportadora" onblur="validatransportadora()"><BR>
+Numero da NF:<BR><input type="text" name="fnfe"><BR>
+CFOP:<BR><input type="text" name="fcfop"><BR>
+
+</div>
+
+<div style="position:absolute;left:50px; top:330px ">
+
+<INPUT TYPE="button" VALUE="Limpa" onClick="reset()">
+<input type="button" value="Captura" onclick="startScan()">
+
+<input type="button" value="le_nota"  onClick="le_nota()">
+
+<BR>_____________________________________________________________________________________<BR>
+
+
+<INPUT TYPE="hidden" NAME="conteudo" id="conteudo">
+<BR>
+<INPUT TYPE="checkbox" NAME="Roubado" onClick="editaEvento()"> Carga Roubada <INPUT TYPE="checkbox" NAME="Invalido" onClick="editaEvento()"> Selo Invalido - <INPUT TYPE="text" NAME="fevento" MAXLENGTH="10" SIZE="10"> 
+<BR><BR>Registro para Processamento em Lote:<BR>
+<TEXTAREA NAME="texto" id="texto" form="formulario" rows=10 cols=70></TEXTAREA>
+<input type="hidden" name="dados" id="dados">
+<input type="button" value="REGISTRA" onClick="validaArquivo()"><BR>
+
+Foram encontrados <input type="text" name="registros" size="5"> registos com <INPUT TYPE="text" NAME="campos" readonly size="2"> campos.
+
+</form>
+
+</div>
+
+<div style="position:absolute;left:650px; top:10px ">Registro existente:<br>
+<!<iframe name="VID" id="VID" src="file:\\\\server01\\sistemas$\\Fatwin\\00001\\Producao\\Transmissao\\NFGerada\\35120700762956000120550010000017691826176424-nfe.xml" width="500" height="300"></frame>
+<iframe name="VID" id="VID" src="dicas.html" width="500" height="300"></frame>
+</div>
+
+</body>
+</html>

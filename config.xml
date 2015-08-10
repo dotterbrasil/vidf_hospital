@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.br.dotter.vidf_hospital"
+        version   = "1.0.0">
+    <name>VIDF - Hospital</name>
+
+    <description>
+        Virtual ID Farma - modulo hospitalar.
+    </description>
+
+    <author href="http://www.dotter.com.br" email="eduardo@dotter.com.br">
+        Dotter do Brasil Ltda
+    </author>
+
+    <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+    <gap:plugin name="org.apache.cordova.device" />
+
+    <preference name="phonegap-version" value="3.5.0" />
+    <preference name="orientation"      value="landscape" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+    <preference name="webviewbounce"    value="false" />
+
+    <icon src="icon.png" />
+    <gap:splash src="icon.png" />
+
+</widget>
