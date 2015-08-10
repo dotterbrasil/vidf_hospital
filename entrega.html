@@ -37,6 +37,7 @@ iframe_senha.close();
 }
 
 
+
 function chama_suporte() {
 
 contra_senha = document.otp.contra_senha.value;
@@ -49,7 +50,7 @@ if (contra_senha == senha) {
 
 	var iframeDoc = document.getElementById("VID").contentWindow.document;
 	iframeDoc.open();
-	iframeDoc.write("<form name='formulario' action='http://virtual-id-farma.com/licencas/"+document.formulario.fid.value+"/header_embarque.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='fdestino' id='fdestino' MAXLENGTH='14' SIZE='14' readonly='readonly'><INPUT TYPE='hidden' NAME='ftransportadora' id='ftransportadora' MAXLENGTH='14' SIZE='14' readonly='readonly'><INPUT TYPE='hidden' NAME='fnfe' id='fnfe' readonly='readonly'><input type="number" name="serie" id="serie" readonly="readonly"><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
+	iframeDoc.write("<form name='formulario' action='http://virtual-id-farma.com/licencas/"+document.formulario.fid.value+"/header_embarque.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='fdestino' id='fdestino' MAXLENGTH='14' SIZE='14' readonly='readonly'><INPUT TYPE='hidden' NAME='ftransportadora' id='ftransportadora' MAXLENGTH='14' SIZE='14' readonly='readonly'><INPUT TYPE='hidden' NAME='fnfe' id='fnfe' readonly='readonly'><input type='hidden' name='serie' id='serie' readonly='readonly'><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
 	iframeDoc.close();
 
 	parent.VID.formulario.fid.value = document.getElementById("fid").value;
@@ -75,6 +76,10 @@ if (contra_senha == senha) {
 	}
 
 }
+
+
+
+
 </script>
 
 </head>
@@ -121,7 +126,7 @@ background-position: 5px 10px;
 </div>
 
 <div style="position:absolute;left:450px; top:40px ">
-<INPUT TYPE="button" VALUE="Inicio >>" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="document.location.href='index.html'">
+<INPUT TYPE="button" VALUE="Recebimento >>" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="document.location.href='recebimento.html'">
 </div>
 
 <div style="position:absolute;left:50px; top:370px ">
@@ -129,7 +134,8 @@ background-position: 5px 10px;
 
 <BR>__________________________________________________________________________________________<BR>
 Natureza: <INPUT TYPE='text' NAME='fnatureza' id='fnatureza' readonly='readonly'><BR> 
-Numero da NF:<BR><input type="number" name="fnfe" id="fnfe" readonly="readonly"> - Serie:<input type="number" name="serie" id="serie" readonly="readonly"><BR>
+Numero da NF:<BR><input type="number" name="fnfe" id="fnfe" readonly="readonly">
+ - Serie:<input type="number" name="serie" id="serie" readonly="readonly"><BR>
 CNPJ Destino:<BR><input type="text" name="fdestino" id="fdestino" SIZE='90' readonly="readonly"><BR>
 CNPJ Transportadora:<BR><input type="text" name="ftransportadora" id="ftransportadora" SIZE='90' readonly="readonly"><BR>
 
@@ -158,7 +164,7 @@ Foram encontrados <input type="text" name="registros" id="registros" size="5" re
 <div name="janela" id="janela" style="position:absolute;left:650px; top:10px ">
 </div>
 
-<div name="senha" id="senha" style="position:absolute;left:350px; top:150px ">
+<div name="senha" id="senha" style="position:absolute;left:350px; top:50px ">
 </div>
 
 </body>
