@@ -5,6 +5,7 @@ document.addEventListener("deviceready", identifica, false);
 function separa(n) {
 
 separador = String.fromCharCode(29);
+inicio = String.fromCharCode(232);
 tamanho = n.length;
 GTIN = "";
 reg_anvisa = "";
@@ -38,20 +39,18 @@ if (n.indexOf(";")>0) {
 
 else {	
 
-	for (i=0;i<4;i++) {
-		if (n.substring(0,1)==separador) {n = n.substring(1,n.length);}
-		if (i==0) {
-			campo = n.substring(0,3);
-			}
-			else
-			{
-			campo = n.substring(0,2);
-			}
+	for (i=0;i<5;i++) {
+		if ((n.substring(0,1)==separador)||(n.substring(0,1)==inicio)) {n = n.substring(1,n.length);}
+
+		campo = n.substring(0,2);
+		if (campo=="71") {campo = "713";}
+		
 		fim_de_campo = n.indexOf(separador);
+
 		if(fim_de_campo<0){fim_de_campo = n.length;}
 		switch(campo)
 			{
-			case "01":
+		case "01":
 			GTIN = n.substring(2,16);
 			n = n.substring(16,n.length);
 			break;
