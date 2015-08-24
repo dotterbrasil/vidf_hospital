@@ -6,6 +6,8 @@ function separa(n) {
 
 separador = String.fromCharCode(29);
 inicio = String.fromCharCode(232);
+caracter_bug = String.fromCharCode(195);
+
 tamanho = n.length;
 GTIN = "";
 reg_anvisa = "";
@@ -38,6 +40,9 @@ if (n.indexOf(";")>0) {
 	}
 
 else {	
+	if ((n.substring(0,1)==caracter_bug)) {n = n.substring(1,n.length);}
+
+	n = n.substring(1,n.length);
 
 	for (i=0;i<5;i++) {
 		if ((n.substring(0,1)==separador)||(n.substring(0,1)==inicio)) {n = n.substring(1,n.length);}
