@@ -182,7 +182,7 @@ function envio(){
 texto_alerta = "Dados Invalidos!";
 
 
-if (document.location.href.indexOf("recebimento")>0)
+if (document.location.href.indexOf("entrega")<0)
 	{
 	valida = true;
 	} else {
