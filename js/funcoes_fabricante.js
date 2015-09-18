@@ -203,3 +203,10 @@ if (valida) {
 	} else {alert(texto_alerta);}
 
 }
+
+function fecha_janela(){
+
+document.getElementById('senha').style.display='none';
+document.getElementById('janela').style.display='none';
+
+}

@@ -21,6 +21,8 @@ function senha_otp(){
 
 senha = "";
 
+document.getElementById('senha').style.display='block';
+
 document.getElementById("senha").innerHTML = "<iframe name='otp' id='otp'  width='400px' height='300px' scrolling='no' style='background-color: hsla(120,100%,75%,0.3); border: inset;'></iframe>";
 var iframe_senha = document.getElementById("otp").contentWindow.document;
 iframe_senha.open();
@@ -31,13 +33,15 @@ for(i=1;i<5;i++) {
 	iframe_senha.write("<img src=imagens/"+digito+".gif>");
 	senha = senha+digito;
 }
-iframe_senha.write("<br><br>Repita a senha acima: <input type='number' name='contra_senha' id='contra_senha' style='width: 155px; height: 80px; font-size: 40px; margin: 1em 1em 1em 0;'>");
+iframe_senha.write("<br><br>Repita a senha acima: <input type='number' name='contra_senha' id='contra_senha' style='width: 155px; height: 80px; font-size: 40px; margin: 1em 1em 1em 0;'><br>Esta janela sera fechada em alguns segundos.");
 iframe_senha.close();
 
 }
 
 
 function chama_suporte() {
+
+document.getElementById('janela').style.display='block';
 
 contra_senha = document.otp.contra_senha.value;
 
@@ -49,7 +53,7 @@ if (contra_senha == senha) {
 
 	var iframeDoc = document.getElementById("VID").contentWindow.document;
 	iframeDoc.open();
-	iframeDoc.write("<form name='formulario' action='http://virtual-id-farma.com/licencas/"+document.formulario.fid.value+"/header_recebimento.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
+	iframeDoc.write("Conectando ao servidor. Aguarde...<form name='formulario' action='http://virtual-id-farma.com/licencas/"+document.formulario.fid.value+"/header_recebimento.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
 	iframeDoc.close();
 
 	parent.VID.formulario.fid.value = document.getElementById("fid").value;
@@ -121,10 +125,14 @@ background-position: 5px 10px;
 <INPUT TYPE="button" VALUE="Inicio >>" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="document.location.href='index.html'">
 </div>
 
-<div style="position:absolute;left:50px; top:370px ">
+<div style="position:absolute;left:50px; top:300px ">
 
 
 <BR>_____________________________________________________________________________________<BR>
+<input type="button" value="(1) Captura" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onclick="startScan();">
+<input type="button" value="(2) Gera Senha"  style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="senha_otp(); setTimeout('fecha_janela()',5000);">
+<input type="button" value="(3) REGISTRA" style="width: 155px; height: 70px; font-size: 20px; margin: 1em 1em 1em 0;" onClick="validaArquivo();">
+
 
 <INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'>
 
@@ -141,13 +149,6 @@ Foram encontrados <input type="text" name="registros" id="registros" size="5" re
 
 </div>
 
-<div style="position:absolute;left:100px; top:300px "><font size="3">Operacao:
-
-<input type="button" value="(1) Captura" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onclick="startScan()">
-<input type="button" value="(2) Gera Senha"  style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="senha_otp()">
-<input type="button" value="(3) REGISTRA" style="width: 155px; height: 70px; font-size: 20px; margin: 1em 1em 1em 0;" onClick="validaArquivo()">
-
-</div>
 
 <div name="janela" id="janela" style="position:absolute;left:650px; top:10px ">
 </div>
